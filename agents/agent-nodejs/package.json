@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/index.js",
-    "start:watch": "nodemon ./index.ts"
+    "start": "yarn run waitForDb && node ./dist/index.js",
+    "start:watch": "yarn run waitForDb && nodemon ./index.ts",
+    "waitForDb": "node wait-for-db.js"
   },
   "nodemonConfig": {
     "ignore": [

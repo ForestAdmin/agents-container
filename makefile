@@ -6,9 +6,13 @@ agent-nodejs-postgres: ## run agent-nodejs with a postgres database
 agent-nodejs-mysql: ## run agent-nodejs with a mysql database
 	./setup-db.sh mysql && docker compose --project-directory . -f agents/agent-nodejs/docker-compose.yml -f databases/mysql/docker-compose.yml up
 
+django-mysql: ## run django with a mysql database
+	./setup-db.sh mysql && docker compose --project-directory . -f agents/django_agent/docker-compose.yml -f databases/mysql/docker-compose.yml up --build
+
 stop: ## stop all the containers
 	docker compose --project-directory . -f agents/agent-nodejs/docker-compose.yml -f databases/postgres/docker-compose.yml rm --force --stop
 	docker compose --project-directory . -f agents/agent-nodejs/docker-compose.yml -f databases/mysql/docker-compose.yml rm --force --stop
+	docker compose --project-directory . -f agents/django_agent/docker-compose.yml -f databases/mysql/docker-compose.yml rm --force --stop
 
 .PHONY: help
 help: ## display all the commands with description

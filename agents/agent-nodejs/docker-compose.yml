@@ -9,7 +9,7 @@ services:
     environment:
       - DATABASE_URL=${DOCKER_DATABASE_URL}
     ports:
-      - "${APPLICATION_PORT}:${APPLICATION_PORT}"
+      - "${APPLICATION_PORT}:8000"add
     volumes:
       - ./agents/agent-nodejs/.:/usr/src/app
       - /usr/src/app/dist

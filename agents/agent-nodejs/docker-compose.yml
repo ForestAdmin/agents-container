@@ -14,3 +14,7 @@ services:
       - ./agents/agent-nodejs/.:/usr/src/app
       - /usr/src/app/dist
       - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+      - mysql
+      - setup

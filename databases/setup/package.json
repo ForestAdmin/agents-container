@@ -1,0 +1,14 @@
+{
+  "name": "setup_database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "sequelize": "^6.31.1",
+    "pg": "^8.7.1",
+    "mysql2": "^3.3.1"
+  },
+  "scripts": {
+    "seed": "node index.js"
+  }
+}

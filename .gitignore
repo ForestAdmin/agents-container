@@ -2,3 +2,4 @@
 /**/*.forestadmin-schema.json
 /**/*.env
 agents/agent-nodejs/typings.ts
+node_modules

@@ -9,8 +9,4 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm run build
-
-EXPOSE ${APPLICATION_PORT}
-
-CMD ["npm", "run", "start:watch"]
+CMD ["npm", "run", "seed"]

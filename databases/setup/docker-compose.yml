@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  setup:
+    build:
+      context: ./databases/setup
+    container_name: setup-database
+    environment:
+      - DATABASE_URL=${DOCKER_DATABASE_URL}
+    volumes:
+      - ./databases/setup/.:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+      - mysql

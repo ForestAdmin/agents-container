@@ -26,7 +26,7 @@ const agent = createAgent<Schema>({
 agent.addDataSource(
   createSqlDataSource({
     uri: process.env.DATABASE_URL,
-    schema: process.env.DATABASE_SCHEMA,
+    schema: process.env.DATABASE_URL.includes('postgres') ? process.env.DATABASE_SCHEMA : undefined,
     dialectOptions,
   }),
 );

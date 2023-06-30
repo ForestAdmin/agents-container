@@ -10,5 +10,4 @@ services:
       - ./databases/setup/.:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
-      - postgres
-      - mysql
+      - ${DEPENDS_DB}

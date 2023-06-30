@@ -1,15 +1,15 @@
 #!/bin/bash
 
 if [ -f .env ] ; then
-    forest_server_url=$(cat .env | grep "FOREST_SERVER_URL")
-    forest_auth_secret=$(cat .env | grep "FOREST_AUTH_SECRET")
-    forest_env_secret=$(cat .env | grep "FOREST_ENV_SECRET")
-    app_port=$(cat .env | grep "APPLICATION_PORT")
+    forest_server_url=$(cat .env | grep -E "^FOREST_SERVER_URL")
+    forest_auth_secret=$(cat .env | grep -E "^FOREST_AUTH_SECRET")
+    forest_env_secret=$(cat .env | grep -E "^FOREST_ENV_SECRET")
+    app_port=$(cat .env | grep -E "^APPLICATION_PORT")
 else
-    forest_server_url=$(cat .env-template | grep "FOREST_SERVER_URL")
-    forest_auth_secret=$(cat .env-template | grep "FOREST_AUTH_SECRET")
-    forest_env_secret=$(cat .env-template | grep "FOREST_ENV_SECRET")
-    app_port=$(cat .env-template | grep "APPLICATION_PORT")
+    forest_server_url=$(cat .env-template | grep -E "^FOREST_SERVER_URL")
+    forest_auth_secret=$(cat .env-template | grep -E "^FOREST_AUTH_SECRET")
+    forest_env_secret=$(cat .env-template | grep -E "^FOREST_ENV_SECRET")
+    app_port=$(cat .env-template | grep -E "^APPLICATION_PORT")
 fi
 
 echo "# Database varialbes" > .env
@@ -26,4 +26,5 @@ echo "# Forest variables" >> .env
 echo "$forest_server_url" >> .env
 echo "$forest_auth_secret" >> .env
 echo "$forest_env_secret" >> .env
+echo "NODE_TLS_REJECT_UNAUTHORIZED=0" >> .env
 
